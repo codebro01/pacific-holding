@@ -32,6 +32,12 @@
     gap: 12px;
     text-decoration: none;
     z-index: 1001;
+    background-color: var(--color-bg-card);
+    /* Light color matching project */
+    border-radius: 7px;
+    padding: 6px 20px;
+    /* Left/Right padding > Top/Bottom */
+    transition: all 0.3s ease;
 }
 
 .logoIcon {
@@ -74,6 +80,12 @@
     position: relative;
     padding: 8px 0;
     transition: color 0.3s ease;
+}
+
+/* Nav links at rest (not scrolled) */
+.header:not(.scrolled) .navLink {
+    color: #ffffff;
+    font-weight: 700;
 }
 
 .navLink::after {

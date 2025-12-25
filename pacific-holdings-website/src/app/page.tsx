@@ -134,7 +134,7 @@ export default function Home() {
               status="Operational"
               type="Energy"
               index={0}
-              image="/images/omotosho.png"
+              image="/images/project-1.jpg"
             />
             <ProjectCard
               id="olorunsogo"
@@ -146,7 +146,7 @@ export default function Home() {
               status="Operational"
               type="Energy"
               index={1}
-              image="/images/olorunsogo.png"
+              image="/images/project-2.jpg"
             />
             <ProjectCard
               id="ajebandele"
@@ -158,7 +158,7 @@ export default function Home() {
               status="In Development"
               type="Energy"
               index={2}
-              image="/images/ajebandele.png"
+              image="/images/project-3.jpg"
             />
             <ProjectCard
               id="freight"
@@ -169,7 +169,7 @@ export default function Home() {
               status="Active"
               type="Freight"
               index={3}
-              image="/images/freightliners.png"
+              image="/images/project-4.png"
             />
             <ProjectCard
               id="diversified"
