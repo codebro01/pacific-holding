@@ -1,0 +1,648 @@
+/* ============================================
+   Companies Page styles - Updated with Image Support
+   ============================================ */
+
+/* Reuse styles from previous step */
+@import '../globals.css';
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 80px);
+}
+
+/* Section Labels & Titles */
+.sectionLabel {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+}
+
+.sectionDescription {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    line-height: 1.7;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.sectionHeader .sectionDescription {
+    margin: 0 auto;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+.hero {
+    position: relative;
+    padding: 180px 20px 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: var(--gradient-hero);
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.gridPattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--hero-pattern-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--hero-pattern-color) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+}
+
+.gradientOrb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(26, 103, 56, 0.1) 0%, transparent 60%);
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.heroLabel {
+    display: inline-block;
+    padding: 10px 24px;
+    background: rgba(26, 103, 56, 0.1);
+    border: 1px solid rgba(26, 103, 56, 0.2);
+    border-radius: 30px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: 24px;
+}
+
+.heroTitle {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.heroSubtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+/* ============================================
+   Company Section
+   ============================================ */
+.companySection {
+    padding: 120px 0;
+    background: var(--color-bg-secondary);
+    position: relative;
+}
+
+.companySection:nth-child(odd) {
+    background: var(--color-bg-primary);
+}
+
+.companyHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.companyBadge {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(26, 103, 56, 0.1);
+    border: 1px solid rgba(26, 103, 56, 0.2);
+    border-radius: 16px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.badgeGold {
+    background: rgba(249, 106, 48, 0.1);
+    border-color: rgba(249, 106, 48, 0.2);
+    color: var(--color-secondary);
+}
+
+.companyTitle {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+}
+
+.companyDescription {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 900px;
+    margin-bottom: 48px;
+}
+
+/* ============================================
+   Power Plants Grid
+   ============================================ */
+.plantsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 32px;
+    margin-bottom: 60px;
+}
+
+.plantCard {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Fallback */
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.plantCard:hover {
+    border-color: rgba(26, 103, 56, 0.3);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.plantCard.upcoming {
+    border-color: rgba(249, 106, 48, 0.2);
+}
+
+.plantCard.upcoming:hover {
+    border-color: rgba(249, 106, 48, 0.4);
+    box-shadow: var(--shadow-glow-secondary);
+}
+
+/* New Image Styles */
+.plantImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.plantImage {
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.plantCard:hover .plantImage {
+    transform: scale(1.05);
+}
+
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+}
+
+.plantHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(26, 103, 56, 0.05) 0%, transparent 100%);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.upcoming .plantHeader {
+    background: linear-gradient(135deg, rgba(249, 106, 48, 0.05) 0%, transparent 100%);
+}
+
+.plantStatus {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(26, 103, 56, 0.15);
+    color: var(--color-primary);
+    border-radius: 20px;
+}
+
+.statusUpcoming {
+    background: rgba(249, 106, 48, 0.15);
+    color: var(--color-secondary);
+}
+
+.plantCapacity {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.upcoming .plantCapacity {
+    color: var(--color-secondary);
+}
+
+.plantContent {
+    padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.plantContent h3 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 8px;
+}
+
+.plantSubtitle {
+    font-size: 0.9375rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.upcoming .plantSubtitle {
+    color: var(--color-secondary);
+}
+
+.plantDescription {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.plantMeta {
+    display: grid;
+    gap: 12px;
+    padding: 20px;
+    background: var(--color-bg-primary);
+    border-radius: 12px;
+    margin-top: auto;
+}
+
+.metaItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.metaLabel {
+    font-size: 0.8125rem;
+    color: var(--color-text-tertiary);
+}
+
+.metaValue {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.statusGreen {
+    color: var(--color-primary);
+}
+
+.statusGold {
+    color: var(--color-secondary);
+}
+
+.projectHighlight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 14px 16px;
+    background: rgba(249, 106, 48, 0.1);
+    border: 1px solid rgba(249, 106, 48, 0.2);
+    border-radius: 10px;
+    color: var(--color-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   Stats Bar
+   ============================================ */
+.statsBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 40px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statNumber {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+}
+
+.statLabel {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+.statDivider {
+    width: 1px;
+    height: 50px;
+    background: var(--glass-border);
+}
+
+/* ============================================
+   Freight Section
+   ============================================ */
+.freightGrid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.freightContent .companyDescription {
+    margin-bottom: 32px;
+}
+
+.featuresList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.featureItem {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.featureItem:hover {
+    background: rgba(26, 103, 56, 0.05);
+    border-color: rgba(26, 103, 56, 0.2);
+}
+
+.featureIcon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(249, 106, 48, 0.1);
+    border-radius: 10px;
+    color: var(--color-secondary);
+    flex-shrink: 0;
+}
+
+.featureItem h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+}
+
+.featureItem p {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+}
+
+/* Replaced visualCard with visualImageWrapper */
+.visualImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.visualImage {
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.visualImageWrapper:hover .visualImage {
+    transform: scale(1.05);
+}
+
+.visualContentText {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    color: white;
+    z-index: 2;
+}
+
+.visualContentText h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.visualContentText p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   Diversified Section
+   ============================================ */
+.diversifiedSection {
+    padding: 120px 0;
+    background: var(--color-bg-secondary);
+}
+
+.sectorsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+}
+
+.sectorCard {
+    text-align: center;
+    padding: 32px 24px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.sectorCard:hover {
+    border-color: rgba(26, 103, 56, 0.3);
+    transform: translateY(-4px);
+}
+
+.sectorIcon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.sectorCard h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+}
+
+.sectorCard p {
+    font-size: 0.8125rem;
+    color: var(--color-text-tertiary);
+}
+
+/* ============================================
+   CTA Section
+   ============================================ */
+.cta {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(26, 103, 56, 0.05) 0%, rgba(249, 106, 48, 0.03) 100%);
+}
+
+.ctaContent {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.ctaContent h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 16px;
+}
+
+.ctaContent p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 32px;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 36px;
+    background: var(--gradient-button);
+    color: white;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 24px rgba(26, 103, 56, 0.3);
+}
+
+.ctaButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(26, 103, 56, 0.5);
+}
+
+.ctaButton svg {
+    transition: transform 0.3s ease;
+}
+
+.ctaButton:hover svg {
+    transform: translateX(4px);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 1024px) {
+    .freightGrid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .statsBar {
+        flex-wrap: wrap;
+        gap: 32px;
+    }
+
+    .statDivider {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 140px 20px 80px;
+    }
+
+    .companySection,
+    .diversifiedSection {
+        padding: 80px 0;
+    }
+
+    .companyHeader {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .plantsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .plantImageWrapper {
+        height: 200px;
+    }
+
+    .statsBar {
+        flex-direction: column;
+        padding: 32px;
+    }
+
+    .sectorsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .sectorsGrid {
+        grid-template-columns: 1fr;
+    }
+}
