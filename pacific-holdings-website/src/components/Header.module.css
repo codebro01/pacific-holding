@@ -82,8 +82,8 @@
     transition: color 0.3s ease;
 }
 
-/* Nav links at rest (not scrolled) */
-.header:not(.scrolled) .navLink {
+/* Nav links at rest (not scrolled) - Only on Home Page */
+.header.homeHeader:not(.scrolled) .navLink {
     color: #ffffff;
     font-weight: 700;
 }
@@ -172,7 +172,7 @@
 .mobileMenu {
     position: fixed;
     inset: 0;
-    background: rgba(10, 15, 26, 0.98);
+    background: var(--color-bg-primary);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 999;

@@ -3,12 +3,15 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 import styles from './Header.module.css';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +29,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+      <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${isHomePage ? styles.homeHeader : ''}`}>
         <div className={styles.container}>
           <Link href="/" className={styles.logo}>
             <Image 
